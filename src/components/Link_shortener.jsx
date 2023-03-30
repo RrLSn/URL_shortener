@@ -7,7 +7,7 @@ const Link_shortener = () => {
         setInput(e.target.value)
     }
     const shortenURL = () => {
-        setResult(input).substr(0,10) + '.com'
+        setResult(input).substr(0,10)
        console.log(result)
     }
 
