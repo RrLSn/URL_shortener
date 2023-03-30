@@ -5,6 +5,9 @@ const Link_shortener = () => {
     const handleChange = (e) => {
         setInput(e.target.value)
     }
+    const handleClick = () => {
+        setInput("")
+    }
 
   return (
     <div className='w-[96vw] h-[40rem] grid place-items-center'>
@@ -14,7 +17,7 @@ const Link_shortener = () => {
             </div>
 
             <div className='flex gap-[1rem]'>
-            <input type="url" className='w-[50rem] p-[1.5rem] border border-blue-400 placeholder:italic rounded-lg focus:outline-blue-500' placeholder='input URL...' required />
+            <input type="url" value={input} className='w-[50rem] p-[1.5rem] border border-blue-400 placeholder:italic rounded-lg focus:outline-blue-500' placeholder='input URL...' onChange={handleChange} required />
             <button className='bg-blue-700 text-white p-[1.5rem] w-[15rem] rounded-lg text-[1.4rem] font-[500]'>Shorten</button>
             </div>
 
