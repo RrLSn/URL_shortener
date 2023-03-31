@@ -6,10 +6,10 @@ const Link_shortener = () => {
     const handleChange = (e) => {
         setInput(e.target.value)
     }
-    const shortenURL = () => {
-        setResult(input).substr(0,10)
-       console.log(result)
-    }
+    // const shortenURL = () => {
+    //     setResult(input).substr(0,10)
+    //    console.log(result)
+    // }
 
     const handleClick = (e) => {
         e.preventDefault()
