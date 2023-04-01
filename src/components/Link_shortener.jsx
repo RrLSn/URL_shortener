@@ -6,14 +6,32 @@ const Link_shortener = () => {
     const handleChange = (e) => {
         setInput(e.target.value)
     }
-    // const shortenURL = () => {
-    //     setResult(input).substr(0,10)
-    //    console.log(result)
-    // }
+
+    const url = 'https://api-ssl.bitly.com/v4/shorten'
+    const shortenURL = () => {
+        fetch(url,
+            {method: 'POST',
+             headers: {
+                Authorization: `Bearer 68e41a5d40cade18bd47c998b90548ce2a62e494`,
+                "Content-Type":'application/json'
+             },
+             body: JSON.stringify({
+                long_url: input,
+                domain: "bit.ly",
+              })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+      setResult(data.link);
+    });
+    }
+
+    // const clipboard = new ClipboardJS('.btn')
+    // clipboard.on
 
     const handleClick = (e) => {
         e.preventDefault()
-        shortenURL()
+        setResult(shortenURL())
     }
 
   return (
@@ -26,7 +44,7 @@ const Link_shortener = () => {
             </form>
 
             <div className='w-[50rem] border border-blue-500 p-[0.5rem] mt-[6rem] flex justify-between'>
-                <h1>{result}</h1>
+                <h1 className='p-[1rem] text-[1.5rem] font-[500]'>{result}</h1>
                 <button className='bg-blue-700 p-[1.5rem] w-[auto] rounded-lg flex'><img className='w-[2rem]' src='./Media/copy.svg'/></button>
             </div>
         </main>
