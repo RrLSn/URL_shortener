@@ -5,7 +5,3 @@
 .App{
   @apply p-[2rem] lg:w-screen w-[100vw] h-[120vh] lg:h-screen bg-blue-500
 }
-
-.copied{
-  @apply bg-black
-}

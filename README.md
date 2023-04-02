@@ -13,7 +13,8 @@ REACT
 COMPONENTS
 
 # Demo
-[preview]()
+[preview](https://jocular-biscotti-065041.netlify.app)
+![Screenshot](./public/Media/Screenshot%202023-04-02%20124954.png)
 
 # Contact
 If you want to contact me, you can reach me at

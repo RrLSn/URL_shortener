@@ -33,12 +33,12 @@ const Link_shortener = () => {
         setResult(shortenURL())
     }
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         setCopied(false)
-    //     }, 1000);
-    //     return () => clearTimeout(timer)
-    // },[copied])
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setCopied(false)
+        }, 1000);
+        return () => clearTimeout(timer)
+    },[copied])
 
   return (
     <div className='w-[96vw] lg:h-[40rem] lg:grid place-items-center'>
@@ -52,7 +52,7 @@ const Link_shortener = () => {
             <div className='lg:w-[50rem] w-[19rem] border border-blue-500 lg:p-[0.5rem] lg:mt-[6rem] mt-[2rem] flex justify-between'>
                 <h1 className='p-[1rem] lg:text-[1.5rem] font-[500]'>{result}</h1>
                 <CopyToClipboard text={result} onCopy={() => setCopied(true)}>
-                    <button className={`bg-blue-700 lg:p-[1.5rem] p-[0.8rem] w-[auto] rounded-lg flex ${copied ? 'copied' : ""}`}>
+                    <button className={`bg-blue-700 lg:p-[1.5rem] p-[0.8rem] w-[auto] rounded-lg flex ${copied ? 'bg-black' : ""}`}>
                         <img className='w-[2rem]' src='./Media/copy.svg'/>
                     </button>
                 </CopyToClipboard>
