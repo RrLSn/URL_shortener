@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import CopyToClipboard from 'react-copy-to-clipboard'
 
 const Link_shortener = () => {
     const [input, setInput] = useState("")
     const [result, setResult] = useState("")
+    const [copied, setCopied] = useState(false)
     const handleChange = (e) => {
         setInput(e.target.value)
     }
@@ -26,26 +28,34 @@ const Link_shortener = () => {
     });
     }
 
-    // const clipboard = new ClipboardJS('.btn')
-    // clipboard.on
-
     const handleClick = (e) => {
         e.preventDefault()
         setResult(shortenURL())
     }
 
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setCopied(false)
+    //     }, 1000);
+    //     return () => clearTimeout(timer)
+    // },[copied])
+
   return (
-    <div className='w-[96vw] h-[40rem] grid place-items-center'>
-        <main className='w-[70%] h-[60vh] bg-white rounded-lg box p-[3rem]'>
+    <div className='w-[96vw] lg:h-[40rem] lg:grid place-items-center'>
+        <main className='lg:w-[70%] w-[90%] lg:h-[60vh] bg-white rounded-lg box lg:p-[3rem] p-[2rem]'>
 
             <form onSubmit={handleClick} className='flex gap-[1rem]'>
-                <input type="url" value={input} className='w-[50rem] p-[1.5rem] border border-blue-400 placeholder:italic rounded-lg focus:outline-blue-500' placeholder='input URL...' onChange={handleChange} required />
-                <button className='bg-blue-700 text-white p-[1.5rem] w-[15rem] rounded-lg text-[1.4rem] font-[500]'>Shorten</button>
+                <input type="url" value={input} className='lg:w-[50rem] lg:p-[1.5rem] p-[1rem] border border-blue-400 placeholder:italic rounded-lg focus:outline-blue-500' placeholder='input URL...' onChange={handleChange} required />
+                <button className='bg-blue-700 text-white p-[0.5rem] lg:p-[1.5rem] lg:w-[15rem] rounded-lg lg:text-[1.4rem] font-[500]'>Shorten</button>
             </form>
 
-            <div className='w-[50rem] border border-blue-500 p-[0.5rem] mt-[6rem] flex justify-between'>
-                <h1 className='p-[1rem] text-[1.5rem] font-[500]'>{result}</h1>
-                <button className='bg-blue-700 p-[1.5rem] w-[auto] rounded-lg flex'><img className='w-[2rem]' src='./Media/copy.svg'/></button>
+            <div className='lg:w-[50rem] w-[19rem] border border-blue-500 lg:p-[0.5rem] lg:mt-[6rem] mt-[2rem] flex justify-between'>
+                <h1 className='p-[1rem] lg:text-[1.5rem] font-[500]'>{result}</h1>
+                <CopyToClipboard text={result} onCopy={() => setCopied(true)}>
+                    <button className={`bg-blue-700 lg:p-[1.5rem] p-[0.8rem] w-[auto] rounded-lg flex ${copied ? 'copied' : ""}`}>
+                        <img className='w-[2rem]' src='./Media/copy.svg'/>
+                    </button>
+                </CopyToClipboard>
             </div>
         </main>
     </div>
