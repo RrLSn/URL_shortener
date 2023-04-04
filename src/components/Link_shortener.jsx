@@ -10,21 +10,21 @@ const Link_shortener = () => {
     }
 
     const url = 'https://api-ssl.bitly.com/v4/shorten'
+    const option = {method: 'POST',
+    headers: {
+       Authorization: `Bearer 68e41a5d40cade18bd47c998b90548ce2a62e494`,
+       "Content-Type":'application/json'
+    },
+    body: JSON.stringify({
+       long_url: input,
+       domain: "bit.ly",
+     })
+}
     const shortenURL = () => {
-        fetch(url,
-            {method: 'POST',
-             headers: {
-                Authorization: `Bearer 68e41a5d40cade18bd47c998b90548ce2a62e494`,
-                "Content-Type":'application/json'
-             },
-             body: JSON.stringify({
-                long_url: input,
-                domain: "bit.ly",
-              })
-        })
+        fetch(url,option)
         .then((response) => response.json())
         .then((data) => {
-      setResult(data.link);
+          setResult(data.link);
     });
     }
 
