@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='text-center text-4xl font-[700] text-white underline lg:mb-[1.5rem] mb-[3rem]'>URL SHORTENER WEBSITE</h1>
+      <h1 className='text-center lg:text-4xl text-2xl font-[700] text-white underline lg:mb-[1.5rem] mb-[3rem]'>URL SHORTENER WEBSITE</h1>
       <Link_shortener/>
     </div>
   )

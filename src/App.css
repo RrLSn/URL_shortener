@@ -3,5 +3,17 @@
 }
 
 .App{
-  @apply p-[2rem] lg:w-screen w-[100vw] h-[120vh] lg:h-screen bg-blue-500
+  @apply p-[2rem] lg:w-screen w-[100vw] min-h-[104vh] lg:h-screen bg-blue-500
+}
+
+.warning{
+  @apply lg:w-[65rem] w-[19rem] h-[5rem] lg:text-[1.5rem] text-white font-[500] bg-blue-700 mb-[1rem] grid place-items-center rounded-lg
+}
+
+.shortenedLink {
+  @apply lg:w-[50rem] w-[19rem] border border-blue-500 lg:p-[0.5rem] lg:mt-[6rem] mt-[2rem] flex justify-between
+}
+
+.copiedLink{
+  @apply bg-black lg:p-[1.5rem] p-[0.8rem] w-[auto] rounded-lg flex
 }
